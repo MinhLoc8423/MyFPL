@@ -1,11 +1,20 @@
 import React, {useEffect} from 'react';
-import LoginScreen from './src/screens/LoginScreen';
-import HomeScreen from './src/screens/HomeScreen';
-
-import SwitchNavigator from './src/navigation/SwitchNavigator';
+import {StatusBar} from 'react-native';
+import {NavigationContainer} from '@react-navigation/native';
+import UserNavigation from './src/navigation/UserNavigation';
 
 function App(): JSX.Element {
-  return <SwitchNavigator />;
+  useEffect(() => {
+    StatusBar.setTranslucent(true);
+    StatusBar.setBackgroundColor('transparent');
+    StatusBar.setBarStyle('dark-content');
+  }, []);
+
+  return (
+    <NavigationContainer>
+      <UserNavigation />
+    </NavigationContainer>
+  );
 }
 
 export default App;
