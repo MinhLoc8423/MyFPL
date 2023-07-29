@@ -11,11 +11,12 @@ import {
 import React from 'react';
 
 // utils
-import {Typography} from '../utils/typography';
-import {Colors} from '../utils/colors';
+import {Typography} from '../../utils/typography';
+import {Colors} from '../../utils/colors';
+import images from '../../utils/images';
 // components
-import Input from '../components/Input';
-import Button from '../components/Button';
+import Input from '../../components/Input';
+import Button from '../../components/Button';
 
 const LoginScreen = ({navigation}) => {
   return (
@@ -74,7 +75,7 @@ const LoginScreen = ({navigation}) => {
             alignItems: 'center',
           }}>
           <Image
-            source={require('../assets/images/Icon_Google.png')}
+            source={images.Icon_Google}
             style={{width: 20, height: 20, marginRight: 12}}
           />
           <Text style={{color: Colors.white, ...Typography.subheadBold}}>

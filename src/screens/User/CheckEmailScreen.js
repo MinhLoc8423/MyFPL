@@ -9,13 +9,14 @@ import {
 import React from 'react';
 
 // utils
-import {Typography} from '../utils/typography';
-import {Colors} from '../utils/colors';
+import {Typography} from '../../utils/typography';
+import {Colors} from '../../utils/colors';
 // components
-import Input from '../components/Input';
-import Button from '../components/Button';
+import Input from '../../components/Input';
+import Button from '../../components/Button';
+import images from '../../utils/images';
 
-const SuccessScreen = ({navigation}) => {
+const CheckEmailScreen = ({navigation}) => {
   return (
     <KeyboardAvoidingView style={styles.container}>
       <ScrollView showsVerticalScrollIndicator={false}>
@@ -26,7 +27,7 @@ const SuccessScreen = ({navigation}) => {
             textAlign: 'center',
             marginTop: 80,
           }}>
-          Successfully
+          Check Your Email
         </Text>
         <Text
           style={{
@@ -37,8 +38,8 @@ const SuccessScreen = ({navigation}) => {
             marginBottom: 58,
             lineHeight: 18,
           }}>
-          Your password has been updated, please change your password regularly
-          to avoid this happening
+          We have sent the reset password to the email address
+          brandonelouis@gmial.com
         </Text>
         <View
           style={{
@@ -46,18 +47,22 @@ const SuccessScreen = ({navigation}) => {
             justifyContent: 'center',
             marginBottom: 72,
           }}>
-          <Image
-            source={require('../assets/images/SuccessEmail.png')}
-            style={{width: 139, height: 117}}
-          />
+          <Image source={images.Check_Email} />
         </View>
         <View style={{marginTop: 15}}></View>
+        <Button
+          title={'OPEN YOUR EMAIL'}
+          backgroundColor={Colors.primary}
+          onPress={() => {
+            navigation.navigate('SuccessScreen');
+          }}
+        />
         <View style={{marginTop: 15}}></View>
         <Button
           title={'BACK TO LOGIN'}
-          backgroundColor={Colors.primary}
+          backgroundColor={Colors.pink}
           onPress={() => {
-            navigation.navigate('LoginScreen');
+            navigation.goBack();
           }}
         />
       </ScrollView>
@@ -65,7 +70,7 @@ const SuccessScreen = ({navigation}) => {
   );
 };
 
-export default SuccessScreen;
+export default CheckEmailScreen;
 
 const styles = StyleSheet.create({
   container: {

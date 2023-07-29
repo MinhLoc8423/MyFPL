@@ -9,13 +9,14 @@ import {
 import React from 'react';
 
 // utils
-import {Typography} from '../utils/typography';
-import {Colors} from '../utils/colors';
+import {Typography} from '../../utils/typography';
+import {Colors} from '../../utils/colors';
 // components
-import Input from '../components/Input';
-import Button from '../components/Button';
+import Input from '../../components/Input';
+import Button from '../../components/Button';
+import images from '../../utils/images';
 
-const CheckEmailScreen = ({navigation}) => {
+const ForgotPasswordScreen = ({navigation}) => {
   return (
     <KeyboardAvoidingView style={styles.container}>
       <ScrollView showsVerticalScrollIndicator={false}>
@@ -26,7 +27,7 @@ const CheckEmailScreen = ({navigation}) => {
             textAlign: 'center',
             marginTop: 80,
           }}>
-          Check Your Email
+          Forgot Password?
         </Text>
         <Text
           style={{
@@ -37,8 +38,8 @@ const CheckEmailScreen = ({navigation}) => {
             marginBottom: 58,
             lineHeight: 18,
           }}>
-          We have sent the reset password to the email address
-          brandonelouis@gmial.com
+          To reset your password, you need your email or mobile number that can
+          be authenticated
         </Text>
         <View
           style={{
@@ -46,17 +47,18 @@ const CheckEmailScreen = ({navigation}) => {
             justifyContent: 'center',
             marginBottom: 72,
           }}>
-          <Image source={require('../assets/images/CheckEmail.png')} />
+          <Image source={images.Forgot_Pass} />
         </View>
-        <View style={{marginTop: 15}}></View>
+        <Input label={'Email'} placeholder={'Enter Email'} />
+        <View style={{marginTop: 19}}></View>
         <Button
-          title={'OPEN YOUR EMAIL'}
+          title={'RESET PASSWORD'}
           backgroundColor={Colors.primary}
           onPress={() => {
-            navigation.navigate('SuccessScreen');
+            navigation.navigate('CheckEmailScreen');
           }}
         />
-        <View style={{marginTop: 15}}></View>
+        <View style={{marginTop: 29}}></View>
         <Button
           title={'BACK TO LOGIN'}
           backgroundColor={Colors.pink}
@@ -69,7 +71,7 @@ const CheckEmailScreen = ({navigation}) => {
   );
 };
 
-export default CheckEmailScreen;
+export default ForgotPasswordScreen;
 
 const styles = StyleSheet.create({
   container: {

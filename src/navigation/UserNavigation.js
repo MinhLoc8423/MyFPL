@@ -1,4 +1,3 @@
-import {View, Text} from 'react-native';
 import React from 'react';
 
 import {
@@ -6,10 +5,10 @@ import {
   createStackNavigator,
 } from '@react-navigation/stack';
 
-import LoginScreen from '../screens/LoginScreen';
-import ForgotPasswordScreen from '../screens/ForgotPasswordScreen';
-import CheckEmailScreen from '../screens/CheckEmailScreen';
-import SuccessScreen from '../screens/SuccessScreen';
+import LoginScreen from '../screens/User/LoginScreen';
+import ForgotPasswordScreen from '../screens/User/ForgotPasswordScreen';
+import CheckEmailScreen from '../screens/User/CheckEmailScreen';
+import SuccessScreen from '../screens/User/SuccessScreen';
 
 const Stack = createStackNavigator();
 

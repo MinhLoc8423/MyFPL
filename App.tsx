@@ -1,7 +1,9 @@
 import React, {useEffect} from 'react';
 import {StatusBar} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
+
 import UserNavigation from './src/navigation/UserNavigation';
+import AppNavigation from './src/navigation/AppNavigation';
 
 function App(): JSX.Element {
   useEffect(() => {
@@ -12,7 +14,8 @@ function App(): JSX.Element {
 
   return (
     <NavigationContainer>
-      <UserNavigation />
+      {/* <UserNavigation /> */}
+      <AppNavigation />
     </NavigationContainer>
   );
 }
