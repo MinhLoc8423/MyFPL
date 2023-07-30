@@ -3,7 +3,11 @@ import React from 'react'
 
 const NotificationScreen = () => {
   return (
-    <SafeAreaView>
+    <SafeAreaView style={{
+      flex: 1,
+      padding: 30,
+      paddingTop: 50,
+   }}>
       <Text>NotificationScreen</Text>
     </SafeAreaView>
   )

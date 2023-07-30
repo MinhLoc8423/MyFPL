@@ -1,11 +1,15 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { SafeAreaView, StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 
 const ScheduleScreen = () => {
   return (
-    <View>
+    <SafeAreaView style={{
+      flex: 1,
+      padding: 30,
+      paddingTop: 50,
+   }}>
       <Text>ScheduleScreen</Text>
-    </View>
+    </SafeAreaView>
   )
 }
 

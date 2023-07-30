@@ -3,6 +3,10 @@ export const Typography = {
     fontFamily: 'Roboto-Bold',
     fontSize: 30,
   },
+  title2: {
+    fontFamily: 'Roboto-Bold',
+    fontSize: 22,
+  },
   headlineBold: {
     fontFamily: 'Roboto-Bold',
     fontSize: 16,

@@ -21,15 +21,15 @@ const AppNavigation = () => {
       screenOptions={{
         tabBarShowLabel: false,
         headerShown: false,
-        tabBarStyle: {       
+        tabBarStyle: {    
+          position: 'absolute',  
           paddingTop:20,
           paddingLeft:30,
           paddingRight: 30,
           paddingBottom: 20,
-          borderColor: Colors.white,
-          borderTopColor: "transparent",
           borderTopRightRadius: 30,
           borderTopLeftRadius: 30,
+          borderColor: 'transparent',
           height: 98,
         },
       }}>
@@ -37,28 +37,28 @@ const AppNavigation = () => {
         name="Home"
         component={HomeScreen}
         options={{
-          tabBarIcon: ({focused}) => <TabIcon focused={focused} icon={images.icon_home} label={"Home"} />,
+          tabBarIcon: ({focused}) => <TabIcon focused={focused} icon_ed={images.icon_home_ed} icon={images.icon_home} label={"Home"} />,
         }}
       />
       <Tab.Screen
         name="Schedule"
         component={ScheduleScreen}
         options={{
-          tabBarIcon: ({focused}) => <TabIcon focused={focused} icon={images.icon_schedule} label={"Schedule"} />,
+          tabBarIcon: ({focused}) => <TabIcon focused={focused} icon_ed={images.icon_schedule_ed} icon={images.icon_schedule} label={"Schedule"} />,
         }}
       />
       <Tab.Screen
         name="Notification"
         component={NotificationScreen}
         options={{
-          tabBarIcon: ({focused}) => <TabIcon focused={focused} icon={images.icon_bell} label={"Notification"} />,
+          tabBarIcon: ({focused}) => <TabIcon focused={focused} icon_ed={images.icon_bell_ed} icon={images.icon_bell} label={"Notification"} />,
         }}
       />
       <Tab.Screen
         name="Profile"
         component={ProfileScreen}
         options={{
-          tabBarIcon: ({focused}) => <TabIcon focused={focused} icon={images.icon_user} label={"Profile"} />,
+          tabBarIcon: ({focused}) => <TabIcon focused={focused} icon_ed={images.icon_user_ed} icon={images.icon_user} label={"Profile"} />,
         }}
       />
     </Tab.Navigator>

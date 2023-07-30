@@ -7,6 +7,7 @@ import {
   StyleSheet,
   Text,
   View,
+  Dimensions,
 } from 'react-native';
 import React from 'react';
 
@@ -22,27 +23,15 @@ const LoginScreen = ({navigation}) => {
   return (
     <KeyboardAvoidingView style={styles.container}>
       <ScrollView showsVerticalScrollIndicator={false}>
-        <Text
-          style={{
-            ...Typography.title1,
-            color: Colors.primary,
-            textAlign: 'center',
-            marginTop: 80,
-          }}>
-          Welcome Back
-        </Text>
-        <Text
-          style={{
-            ...Typography.textRegular,
-            color: Colors.secondary,
-            textAlign: 'center',
-            marginTop: 10,
-            marginBottom: 64,
-            lineHeight: 18,
-          }}>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor
-        </Text>
+        <View 
+        style={{
+          marginTop: 80,
+          marginBottom: 44,
+          width: Dimensions.get('window').width - 60, 
+          height: 119,
+        }}>
+          <Image source={images.logo} style={{width: "100%", height: "100%"}} resizeMode="contain" />
+        </View>
         <Input label={'Email'} placeholder={'Enter Email'} />
         <Input
           label={'Password'}
