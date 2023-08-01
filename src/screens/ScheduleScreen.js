@@ -1,14 +1,13 @@
 import { SafeAreaView, StyleSheet, Text, View } from 'react-native'
 import React from 'react'
+import Header from '../components/Header'
 
 const ScheduleScreen = () => {
   return (
     <SafeAreaView style={{
       flex: 1,
-      padding: 30,
-      paddingTop: 50,
    }}>
-      <Text>ScheduleScreen</Text>
+      <Header title={"Schedules"} />
     </SafeAreaView>
   )
 }

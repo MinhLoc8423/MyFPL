@@ -1,14 +1,13 @@
 import { StyleSheet, Text, View, SafeAreaView } from 'react-native'
 import React from 'react'
+import Header from '../components/Header'
 
 const ProfileScreen = () => {
   return (
     <SafeAreaView style={{
       flex: 1,
-      padding: 30,
-      paddingTop: 50,
    }}>
-      <Text>ProfileScreen</Text>
+      <Header title={"Profile"} />
     </SafeAreaView>
   )
 }

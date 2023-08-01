@@ -15,6 +15,10 @@ export const Typography = {
     fontFamily: 'Roboto-Bold',
     fontSize: 14,
   },
+  subheadRegular: {
+    fontFamily: 'Roboto-Regular',
+    fontSize: 14,
+  },
   textRegular: {
     fontFamily: 'Roboto-Regular',
     fontSize: 12,

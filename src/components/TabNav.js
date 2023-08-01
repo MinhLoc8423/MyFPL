@@ -14,12 +14,12 @@ const TabIcon = ({focused, icon_ed, icon, label}) => {
       <View
         style={{
           flexDirection: 'row',
-          height: 50,
+          height: 40,
           width: 120,
           borderRadius: 250,
           justifyContent: 'center',
           paddingLeft: 16,
-          paddingRight: 16,
+          paddingRight: 17,
           alignItems: 'center',
           backgroundColor: focused ? '#FFD6AD' : '',
           borderRadius: 25,
@@ -35,7 +35,7 @@ const TabIcon = ({focused, icon_ed, icon, label}) => {
             style={{
               marginLeft: 8,
               color: Colors.primary,
-              ...Typography.textBold,
+              ...Typography.subheadBold,
             }}>
             {label}
           </Text>
