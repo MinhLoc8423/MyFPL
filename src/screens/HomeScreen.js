@@ -6,7 +6,7 @@ import {
   Image,
   FlatList,
 } from 'react-native';
-import React from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import {ScrollView} from 'react-native-virtualized-view';
 
 import {Typography} from '../utils/typography';
@@ -14,7 +14,28 @@ import {Colors} from '../utils/colors';
 import images from '../utils/images';
 import ItemJob from '../components/ItemJob';
 
-const HomeScreen = () => {
+import {getJob} from '../services/AppService';
+import { UserContext } from '../Context/UserContext';
+
+
+
+const HomeScreen = (props) => {
+  const {navigation} = props;
+  const [job, setJob] = useState([]);
+  const [loading, setLoading] = useState(false)
+  const { user } = useContext(UserContext)
+  console.log(user)
+
+  const onGetJob = async () => {
+    const job = await getJob();
+    console.log(job)
+    setJob(job);
+  };
+
+  useEffect(() => {
+    onGetJob()
+  }, [])
+
   return (
     <SafeAreaView
       style={{
@@ -37,7 +58,7 @@ const HomeScreen = () => {
               ...Typography.title2,
               color: Colors.secondary,
             }}>
-            Hello Orlando Diggs.
+            Hello {user}.
           </Text>
           <View
             style={{
@@ -186,9 +207,9 @@ const HomeScreen = () => {
         {/* render Item */}
         <FlatList
           style={{marginBottom: 70}}
-          data={data}
+          data={job}
           renderItem={ItemJob}
-          keyExtractor={item => item.id}
+          keyExtractor={item => item._id}
         />
       </ScrollView>
     </SafeAreaView>
@@ -196,21 +217,3 @@ const HomeScreen = () => {
 };
 
 export default HomeScreen;
-
-const data = [
-  {id: '1', name: 'Product Designer'},
-  {id: '2', name: 'Product Designer'},
-  {id: '3', name: 'Product Designer'},
-  {id: '4', name: 'Product Designer'},
-  {id: '5', name: 'Product Designer'},
-  {id: '6', name: 'Product Designer'},
-  {id: '11', name: 'Product Designer'},
-  {id: '7', name: 'Product Designer'},
-  {id: '8', name: 'Product Designer'},
-  {id: '9', name: 'Product Designer'},
-  {id: '12', name: 'Product Designer'},
-  {id: '13', name: 'Product Designer'},
-  {id: '14', name: 'Product Designer'},
-  {id: '15', name: 'Product Designer'},
-  {id: '16', name: 'Product Designer'},
-];

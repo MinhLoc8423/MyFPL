@@ -3,6 +3,7 @@ import React from 'react';
 import images from '../utils/images';
 import {Colors} from '../utils/colors';
 import {Typography} from '../utils/typography';
+import { displayPostedTime } from '../utils/time';
 
 const renderItem = ({item}) => (
   <View style={styles.item}>
@@ -35,7 +36,7 @@ const renderItem = ({item}) => (
               color: Colors.secondary,
               maxWidth: 230,
             }}>
-            Brandon, there are 10+ new jobs for UI/UX Designer in California,USA
+            {item.title}
           </Text>
         </View>
       </View>
@@ -61,7 +62,7 @@ const renderItem = ({item}) => (
       }}>
         <Text>See notification</Text>
       </Pressable>
-      <Text style={{fontFamily: 'Roboto-Regular', fontSize: 12}}>1 Hour</Text>
+      <Text style={{fontFamily: 'Roboto-Regular', fontSize: 12}}>{displayPostedTime(item.date)}</Text>
     </View>
   </View>
 );

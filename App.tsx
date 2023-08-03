@@ -1,9 +1,8 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import {StatusBar} from 'react-native';
-import {NavigationContainer} from '@react-navigation/native';
-
-import UserNavigation from './src/navigation/UserNavigation';
-import AppNavigation from './src/navigation/AppNavigation';
+import {UserProvider} from './src/Context/UserContext';
+import {AppProvider} from './src/Context/AppContext';
+import LoginNavigation from './src/navigation/LoginNavigation';
 
 function App(): JSX.Element {
   useEffect(() => {
@@ -13,10 +12,11 @@ function App(): JSX.Element {
   }, []);
 
   return (
-    <NavigationContainer>
-      {/* <UserNavigation /> */}
-      <AppNavigation />
-    </NavigationContainer>
+    <UserProvider>
+      <AppProvider>
+        <LoginNavigation />
+      </AppProvider>
+    </UserProvider>
   );
 }
 

@@ -14,7 +14,7 @@ const TabIcon = ({focused, icon_ed, icon, label}) => {
       <View
         style={{
           flexDirection: 'row',
-          height: 40,
+          height: 35,
           width: 120,
           borderRadius: 250,
           justifyContent: 'center',

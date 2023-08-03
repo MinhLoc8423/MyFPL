@@ -30,10 +30,10 @@ const renderItem = ({item}) => (
         </View>
         <View>
           <Text style={{...Typography.subheadBold, color: Colors.secondary}}>
-            {item.name}
+            {item.title}
           </Text>
           <Text style={{...Typography.textRegular, color: '#524b6b'}}>
-            Google inc . California, USA
+            {item.nameCompany} . {item.location} 
           </Text>
         </View>
       </View>
@@ -44,12 +44,12 @@ const renderItem = ({item}) => (
     </View>
     <Text
       style={{
-        ...Typography.subheadRegular,
+        ...Typography.subheadBold,
         color: Colors.secondary,
         marginTop: 20,
         marginBottom: 20,
       }}>
-      $15K/Mo
+      ${item.salary}K/Mo
     </Text>
     <View
       style={{
@@ -88,7 +88,7 @@ const renderItem = ({item}) => (
             marginHorizontal: 17,
             marginVertical: 6,
           }}>
-          Full time
+          {item.time}
         </Text>
       </View>
       <View

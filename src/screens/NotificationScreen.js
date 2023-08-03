@@ -1,9 +1,25 @@
 import {FlatList, SafeAreaView, StyleSheet, Text, View} from 'react-native';
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import Header from '../components/Header';
 import ItemNotification from '../components/ItemNotification';
 
-const NotificationScreen = () => {
+import {getNews} from '../services/AppService';
+
+const NotificationScreen = props => {
+  const {navigation} = props;
+  const [news, setNews] = useState([]);
+  const [loading, setLoading] = useState(false)
+
+  const onGetNews = async () => {
+    const news = await getNews();
+    console.log(news)
+    setNews(news);
+  };
+
+  useEffect(() => {
+    onGetNews()
+  }, [])
+
   return (
     <SafeAreaView
       style={{
@@ -13,10 +29,12 @@ const NotificationScreen = () => {
 
       {/* list view notification */}
       <FlatList
-        style={{ paddingHorizontal: 20, paddingTop: 20, marginBottom: 100 }}
-        data={data}
+        style={{paddingHorizontal: 20, paddingTop: 20, marginBottom: 100}}
+        data={news}
         renderItem={ItemNotification}
-        keyExtractor={item => item.id}
+        onRefresh={onGetNews}
+        refreshing={loading}
+        keyExtractor={item => item._id}
       />
     </SafeAreaView>
   );
@@ -25,21 +43,3 @@ const NotificationScreen = () => {
 export default NotificationScreen;
 
 const styles = StyleSheet.create({});
-
-const data = [
-  {id: '1', name: 'Product Designer'},
-  {id: '2', name: 'Product Designer'},
-  {id: '3', name: 'Product Designer'},
-  {id: '4', name: 'Product Designer'},
-  {id: '5', name: 'Product Designer'},
-  {id: '6', name: 'Product Designer'},
-  {id: '11', name: 'Product Designer'},
-  {id: '7', name: 'Product Designer'},
-  {id: '8', name: 'Product Designer'},
-  {id: '9', name: 'Product Designer'},
-  {id: '12', name: 'Product Designer'},
-  {id: '13', name: 'Product Designer'},
-  {id: '14', name: 'Product Designer'},
-  {id: '15', name: 'Product Designer'},
-  {id: '16', name: 'Product Designer'},
-];

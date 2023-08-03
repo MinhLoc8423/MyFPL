@@ -4,16 +4,30 @@ import {
   createBottomTabNavigator,
   BottomTabBar,
 } from '@react-navigation/bottom-tabs';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import HomeScreen from '../screens/HomeScreen';
-import ScheduleScreen from '../screens/ScheduleScreen';
+import ScheduleScreen from '../screens/Schedule/ScheduleScreen';
 import NotificationScreen from '../screens/NotificationScreen';
 import ProfileScreen from '../screens/ProfileScreen';
+import ScheduleExam from '../screens/Schedule/ScheduleExam';
+
 import images from '../utils/images';
 import { Colors } from '../utils/colors';
+
 import TabIcon from '../components/TabNav';
 
+const Stack = createNativeStackNavigator()
 const Tab = createBottomTabNavigator();
+
+const ScheduleStack = () => {
+  return (
+      <Stack.Navigator screenOptions={{ headerShown: false }}>
+          <Stack.Screen name='Schedule' component={ScheduleScreen} />
+          <Stack.Screen name='Exam' component={ScheduleExam} />
+      </Stack.Navigator>
+  )
+}
 
 const AppNavigation = () => {
   return (
@@ -41,8 +55,8 @@ const AppNavigation = () => {
         }}
       />
       <Tab.Screen
-        name="Schedule"
-        component={ScheduleScreen}
+        name="ScheduleStack"
+        component={ScheduleStack}
         options={{
           tabBarIcon: ({focused}) => <TabIcon focused={focused} icon_ed={images.icon_schedule_ed} icon={images.icon_schedule} label={"Schedule"} />,
         }}

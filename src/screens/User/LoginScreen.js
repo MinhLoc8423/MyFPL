@@ -8,8 +8,12 @@ import {
   Text,
   View,
   Dimensions,
+  Alert,
 } from 'react-native';
-import React from 'react';
+import React, { useContext, useState } from 'react';
+
+//Context
+import { UserContext } from '../../Context/UserContext'
 
 // utils
 import {Typography} from '../../utils/typography';
@@ -19,21 +23,46 @@ import images from '../../utils/images';
 import Input from '../../components/Input';
 import Button from '../../components/Button';
 
-const LoginScreen = ({navigation}) => {
+const LoginScreen = (props) => {
+  const { navigation } = props;
+  const { onLogin } = useContext(UserContext);
+  const [email, setEmail] = useState('locvmps22446@fpt.edu.vn');
+  const [password, setPassword] = useState('12121212');
+ 
+
+  const onLoginPress = async () => {
+    const result = await onLogin(email, password);
+    console.log(result)
+    if (!result) {
+      Alert.alert('Login failed!');
+    }
+  };
+
   return (
     <KeyboardAvoidingView style={styles.container}>
       <ScrollView showsVerticalScrollIndicator={false}>
-        <View 
-        style={{
-          marginTop: 80,
-          marginBottom: 44,
-          width: Dimensions.get('window').width - 60, 
-          height: 119,
-        }}>
-          <Image source={images.logo} style={{width: "100%", height: "100%"}} resizeMode="contain" />
+        <View
+          style={{
+            marginTop: 80,
+            marginBottom: 44,
+            width: Dimensions.get('window').width - 60,
+            height: 119,
+          }}>
+          <Image
+            source={images.logo}
+            style={{width: '100%', height: '100%'}}
+            resizeMode="contain"
+          />
         </View>
-        <Input label={'Email'} placeholder={'Enter Email'} />
         <Input
+          value={email}
+          onChangeText={setEmail}
+          label={'Email'}
+          placeholder={'Enter Email'}
+        />
+        <Input
+          value={password}
+          onChangeText={setPassword}
           label={'Password'}
           placeholder={'Enter Password'}
           secureTextEntry={true}
@@ -50,7 +79,11 @@ const LoginScreen = ({navigation}) => {
           }}>
           Forgot Password ?
         </Text>
-        <Button title={'LOGIN'} backgroundColor={Colors.primary} />
+        <Button
+          title={'LOGIN'}
+          backgroundColor={Colors.primary}
+          onPress={onLoginPress}
+        />
         <View
           style={{
             width: '100%',
