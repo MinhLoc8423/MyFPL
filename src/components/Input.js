@@ -3,9 +3,9 @@ import { TextInput, View, StyleSheet, Text } from 'react-native';
 import { Colors } from '../utils/colors';
 import {Typography} from '../utils/typography';
 
-const Input = ({ label ,placeholder, secureTextEntry, ...restProps }) => {
+const Input = ({ label ,placeholder, secureTextEntry, style, ...restProps }) => {
   return (
-    <View style={styles.container}>
+    <View style={[styles.container,style]}>
         <Text style={styles.label}>{label}</Text>
       <TextInput
         style={styles.input}
@@ -22,7 +22,7 @@ const styles = StyleSheet.create({
     marginBottom: 16,
   },
   label:{
-    ...Typography.textBold,
+    ...Typography.subheadBold,
     color: Colors.secondary,
     marginBottom: 11,
   },

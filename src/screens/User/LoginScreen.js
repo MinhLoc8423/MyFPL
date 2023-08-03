@@ -27,7 +27,7 @@ const LoginScreen = (props) => {
   const { navigation } = props;
   const { onLogin } = useContext(UserContext);
   const [email, setEmail] = useState('locvmps22446@fpt.edu.vn');
-  const [password, setPassword] = useState('12121212');
+  const [password, setPassword] = useState('1234');
  
 
   const onLoginPress = async () => {

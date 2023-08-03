@@ -28,7 +28,7 @@ const ScheduleScreen = props => {
       style={{
         flex: 1,
       }}>
-      <Header title={'Schedules'} />
+      <Header title={'Schedules'} navigation={navigation} />
       <View
         style={{
           backgroundColor: Colors.white,

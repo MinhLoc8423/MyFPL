@@ -47,3 +47,13 @@ export const formatDate = dateString => {
 
   return `${day}-${month}-${year}`;
 };
+
+export const formatDate1 = dateString => {
+  const date = new Date(dateString);
+  const day = date.getDate().toString().padStart(2, '0');
+  const month = (date.getMonth() + 1).toString().padStart(2, '0');
+  const year = date.getFullYear().toString();
+
+  const formattedDate = `${year}-${month}-${day}T00:00:00.000Z`;
+  return formattedDate.replace('Z', '+00:00');
+};

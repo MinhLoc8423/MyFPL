@@ -5,36 +5,35 @@ import {
   SafeAreaView,
   Image,
   FlatList,
+  Pressable,
 } from 'react-native';
-import React, { useContext, useEffect, useState } from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import {ScrollView} from 'react-native-virtualized-view';
 
-import {Typography} from '../utils/typography';
-import {Colors} from '../utils/colors';
-import images from '../utils/images';
-import ItemJob from '../components/ItemJob';
+import {Typography} from '../../utils/typography';
+import {Colors} from '../../utils/colors';
+import images from '../../utils/images';
+import ItemJob from '../../components/ItemJob';
 
-import {getJob} from '../services/AppService';
-import { UserContext } from '../Context/UserContext';
-
-
+import {getJob} from '../../services/AppService';
+import {UserContext} from '../../Context/UserContext';
+import renderItem from '../../components/ItemJob';
 
 const HomeScreen = (props) => {
   const {navigation} = props;
   const [job, setJob] = useState([]);
-  const [loading, setLoading] = useState(false)
-  const { user } = useContext(UserContext)
-  console.log(user)
+  const [loading, setLoading] = useState(false);
+  const {user} = useContext(UserContext);
 
   const onGetJob = async () => {
-    const job = await getJob();
-    console.log(job)
+    const job = await getJob("");
+    console.log(job);
     setJob(job);
   };
 
   useEffect(() => {
-    onGetJob()
-  }, [])
+    onGetJob();
+  }, []);
 
   return (
     <SafeAreaView
@@ -108,7 +107,10 @@ const HomeScreen = (props) => {
             height: 170,
             marginBottom: 19,
           }}>
-          <View
+          <Pressable
+            onPress={() => {
+              navigation.navigate('Job',{ queryParam: "" });
+            }}
             style={{
               backgroundColor: '#afecfe',
               width: '45%',
@@ -135,14 +137,17 @@ const HomeScreen = (props) => {
               }}>
               Total
             </Text>
-          </View>
+          </Pressable>
           <View
             style={{
               flex: 1,
               marginLeft: 20,
               flexDirection: 'column',
             }}>
-            <View
+            <Pressable
+              onPress={() => {
+                navigation.navigate('Job',{ queryParam: "Full Time" });
+              }}
               style={{
                 backgroundColor: '#beaffe',
                 marginBottom: 20,
@@ -166,8 +171,11 @@ const HomeScreen = (props) => {
                 }}>
                 Full Time
               </Text>
-            </View>
-            <View
+            </Pressable>
+            <Pressable
+              onPress={() => {
+                navigation.navigate('Job',{ queryParam: "Part Time" });
+              }}
               style={{
                 backgroundColor: '#ffd6ad',
                 width: '100%',
@@ -190,7 +198,7 @@ const HomeScreen = (props) => {
                 }}>
                 Part Time
               </Text>
-            </View>
+            </Pressable>
           </View>
         </View>
 
@@ -208,7 +216,7 @@ const HomeScreen = (props) => {
         <FlatList
           style={{marginBottom: 70}}
           data={job}
-          renderItem={ItemJob}
+          renderItem={({ item }) => renderItem({ item, navigation })}
           keyExtractor={item => item._id}
         />
       </ScrollView>

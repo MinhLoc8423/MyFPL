@@ -6,13 +6,14 @@ export const UserContext = createContext();
 export const UserProvider = props => {
   const {children} = props;
   const [user, setUser] = useState(null);
+  const [arr, setArr] = useState([]);
 
   const onLogin = async (username, password) => {
     try {
       const result = await login(username, password);
       if (result.statusCode == 200) {
-        console.log(result.data.fullName)
         setUser(result.data.fullName)
+        setArr(result.data)
         return true;
       }
     } catch (error) {
@@ -22,7 +23,7 @@ export const UserProvider = props => {
   };
 
   return (
-    <UserContext.Provider value={{user, setUser, onLogin }}>
+    <UserContext.Provider value={{user, setUser, arr, setArr, onLogin }}>
       {children}
     </UserContext.Provider>
   );

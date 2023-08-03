@@ -1,11 +1,13 @@
-import {Image, StyleSheet, Text, View} from 'react-native';
+import {Image, Pressable, StyleSheet, Text, View} from 'react-native';
 import React from 'react';
 import images from '../utils/images';
 import {Colors} from '../utils/colors';
 import {Typography} from '../utils/typography';
 
-const renderItem = ({item}) => (
-  <View style={styles.item}>
+const renderItem = ({item, navigation}) => (
+  <Pressable
+    style={styles.item}
+    onPress={() => navigation.navigate("Description", { id: item._id })}>
     <View
       style={{
         flexDirection: 'row',
@@ -33,7 +35,7 @@ const renderItem = ({item}) => (
             {item.title}
           </Text>
           <Text style={{...Typography.textRegular, color: '#524b6b'}}>
-            {item.nameCompany} . {item.location} 
+            {item.nameCompany} . {item.location}
           </Text>
         </View>
       </View>
@@ -110,7 +112,7 @@ const renderItem = ({item}) => (
         </Text>
       </View>
     </View>
-  </View>
+  </Pressable>
 );
 
 export default renderItem;

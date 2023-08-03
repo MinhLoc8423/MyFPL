@@ -25,7 +25,7 @@ const NotificationScreen = props => {
       style={{
         flex: 1,
       }}>
-      <Header title={'Notification'} />
+      <Header title={'Notification'} navigation={navigation} />
 
       {/* list view notification */}
       <FlatList

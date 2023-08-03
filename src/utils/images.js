@@ -17,9 +17,18 @@ const icon_headhunting = require('../assets/images/icon_headhunting.png');
 const icon_company = require('../assets/images/icon_company.png');
 const icon_save = require('../assets/images/icon_save.png');
 const icon_setting = require('../assets/images/icon_setting.png');
+const icon_setting1 = require('../assets/images/Icon_Setting.png');
 const icon_options = require('../assets/images/icon_options.png');
+const background = require('../assets/images/Background.png');
+const icon_back = require('../assets/images/icon_back.png');
+const icon_lock = require('../assets/images/icon_lock.png');
+const icon_logout = require('../assets/images/icon_logout.png');
+const icon_selected = require('../assets/images/icon_selected.png');
 
 export default {
+  icon_selected,
+  icon_logout,
+  icon_lock,
   Icon_Google,
   Check_Email,
   Forgot_Pass,
@@ -38,6 +47,9 @@ export default {
   icon_headhunting,
   icon_company,
   icon_save,
+  icon_setting1,
   icon_setting,
+  background,
   icon_options,
+  icon_back,
 };

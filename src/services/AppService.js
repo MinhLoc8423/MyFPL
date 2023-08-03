@@ -11,9 +11,20 @@ export const getNews = async () => {
       }
 }
 
-export const getJob = async () => {
+export const getJob = async (title) => {
   try {
-      const res = await AxiosInstance.get('/internship');
+      const res = await AxiosInstance.get(`/internship?q=${title}`);
+      console.log(res.data);
+      return res.data;
+    } catch (err) {
+      console.log('Err: ', err);
+      return err;
+    }
+}
+
+export const getOneJob = async (id) => {
+  try {
+      const res = await AxiosInstance.get(`/internship/${id}`);
       console.log(res.data);
       return res.data;
     } catch (err) {

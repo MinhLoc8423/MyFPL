@@ -50,14 +50,13 @@ const renderItem = ({item}) => (
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'center',
-        marginLeft: 70,
       }}>
       <Pressable
       style={{
         borderWidth: 1,
         borderColor: "#150B3D",
         borderRadius: 10,
-        paddingHorizontal: 20,
+        paddingHorizontal: 10,
         paddingVertical:8,
       }}>
         <Text>See notification</Text>
